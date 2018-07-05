@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="8,00"
+	Name="ModbusProtocol"
+	ProjectGUID="{3A9D8850-245C-30FC-B106-B9FCD528EE2B}"
+	Keyword="Qt4VSv1.0">
+	<Platforms>
+		<Platform
+			Name="Win32" />
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="release\"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			ConfigurationType="2"
+			IntermediateDirectory="release\"
+			UseOfMfc="0">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories=".,C:\QT\QT5.11.1\5.11.1\MSVC2015\include,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtCore,release,C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\win32-msvc"
+				AdditionalOptions="-w34100 -w34189 -w44996"
+				AssemblerListingLocation="release\"
+				DebugInformationFormat="0"
+				ExceptionHandling="1"
+				GeneratePreprocessedFile="0"
+				ObjectFile="release\"
+				Optimization ="2"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,_UNICODE,WIN32,MODBUSPROTOCOL_LIBRARY,QT_DEPRECATED_WARNINGS,QT_NO_DEBUG,QT_CORE_LIB,NDEBUG"
+				ProgramDataBaseFileName=""
+				RuntimeLibrary="2"
+				SuppressStartupBanner="true"
+				TreatWChar_tAsBuiltInType="true"
+				WarningLevel="3" />
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="$(QTDIR)\lib\Qt5Core.lib"
+				AdditionalLibraryDirectories="$(QTDIR)\lib,C:\QT\QT5.11.1\5.11.1\MSVC2015\lib"
+				DataExecutionPrevention="true"
+				GenerateDebugInformation="false"
+				IgnoreImportLibrary="true"
+				LinkIncremental="1"
+				LinkTimeCodeGeneration="0"
+				OutputFile="$(OutDir)\ModbusProtocol.dll"
+				ProgramDatabaseFile=""
+				RandomizedBaseAddress="true"
+				SubSystem="2"
+				SuppressStartupBanner="true" />
+			<Tool
+				Name="VCManifestTool" />
+			<Tool
+				Name="VCMIDLTool"
+				DefaultCharType="0"
+				EnableErrorChecks="1"
+				WarningLevel="0" />
+			<Tool
+				Name="VCPostBuildEventTool" />
+			<Tool
+				Name="VCPreBuildEventTool" />
+			<Tool
+				Name="VCPreLinkEventTool" />
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,_UNICODE,WIN32,MODBUSPROTOCOL_LIBRARY,QT_DEPRECATED_WARNINGS,QT_NO_DEBUG,QT_CORE_LIB" />
+			<DeploymentTool
+				RemoteDirectory="%CSIDL_PROGRAM_FILES%\ModbusProtocol"
+				RegisterOutput="0"
+				AdditionalFiles="Qt5Core.dll|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusProtocol|0;" />
+		</Configuration>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="debug\"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			ConfigurationType="2"
+			IntermediateDirectory="debug\"
+			UseOfMfc="0">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories=".,C:\QT\QT5.11.1\5.11.1\MSVC2015\include,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtCore,debug,C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\win32-msvc"
+				AdditionalOptions="-w34100 -w34189 -w44996"
+				AssemblerListingLocation="debug\"
+				DebugInformationFormat="3"
+				ExceptionHandling="1"
+				GeneratePreprocessedFile="0"
+				ObjectFile="debug\"
+				Optimization ="4"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,_UNICODE,WIN32,MODBUSPROTOCOL_LIBRARY,QT_DEPRECATED_WARNINGS,QT_CORE_LIB"
+				ProgramDataBaseFileName=""
+				RuntimeLibrary="3"
+				SuppressStartupBanner="true"
+				TreatWChar_tAsBuiltInType="true"
+				WarningLevel="3" />
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="$(QTDIR)\lib\Qt5Cored.lib"
+				AdditionalLibraryDirectories="$(QTDIR)\lib,C:\QT\QT5.11.1\5.11.1\MSVC2015\lib"
+				DataExecutionPrevention="true"
+				GenerateDebugInformation="true"
+				IgnoreImportLibrary="true"
+				LinkTimeCodeGeneration="0"
+				OutputFile="$(OutDir)\ModbusProtocol.dll"
+				ProgramDatabaseFile=""
+				RandomizedBaseAddress="true"
+				SubSystem="2"
+				SuppressStartupBanner="true" />
+			<Tool
+				Name="VCManifestTool" />
+			<Tool
+				Name="VCMIDLTool"
+				DefaultCharType="0"
+				EnableErrorChecks="1"
+				WarningLevel="0" />
+			<Tool
+				Name="VCPostBuildEventTool" />
+			<Tool
+				Name="VCPreBuildEventTool" />
+			<Tool
+				Name="VCPreLinkEventTool" />
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,_UNICODE,WIN32,MODBUSPROTOCOL_LIBRARY,QT_DEPRECATED_WARNINGS,QT_CORE_LIB,_DEBUG" />
+			<DeploymentTool
+				RemoteDirectory="%CSIDL_PROGRAM_FILES%\ModbusProtocol"
+				RegisterOutput="0"
+				AdditionalFiles="Qt5Cored.dll|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusProtocol|0;" />
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			<File
+				RelativePath="modbusprotocol.cpp" />
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			<File
+				RelativePath="modbusprotocol.h" />
+			<File
+				RelativePath="modbusprotocol_global.h" />
+		</Filter>
+		<Filter
+			Name="Generated Files"
+			Filter="cpp;c;cxx;moc;h;def;odl;idl;res;"
+			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}">
+			<File
+				RelativePath="debug\moc_predefs.h.cbt">
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true" />
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\features\data\dummy.cpp"
+						CommandLine="cl -Bx&quot;$(QTDIR)\bin\qmake.exe&quot; -nologo -Zc:wchar_t -Zi -MDd -W3 -w34100 -w34189 -w44996 -E C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\features\data\dummy.cpp 2>NUL >debug\moc_predefs.h"
+						Description="Generate moc_predefs.h"
+						Outputs="debug\moc_predefs.h"
+						Path="." />
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="release\moc_predefs.h.cbt">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\features\data\dummy.cpp"
+						CommandLine="cl -Bx&quot;$(QTDIR)\bin\qmake.exe&quot; -nologo -Zc:wchar_t -O2 -MD -W3 -w34100 -w34189 -w44996 -E C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\features\data\dummy.cpp 2>NUL >release\moc_predefs.h"
+						Description="Generate moc_predefs.h"
+						Outputs="release\moc_predefs.h"
+						Path="." />
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true" />
+			</File>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

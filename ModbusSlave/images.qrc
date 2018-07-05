@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>slave.ico</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="8,00"
+	Name="ModbusMaster"
+	ProjectGUID="{4F0267CA-F5EC-3263-94B4-FC5C2622D7CA}"
+	Keyword="Qt4VSv1.0">
+	<Platforms>
+		<Platform
+			Name="Win32" />
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="release\"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			ConfigurationType="1"
+			IntermediateDirectory="release\"
+			UseOfMfc="0">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories=".,C:\QT\QT5.11.1\5.11.1\MSVC2015\include,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtWidgets,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtGui,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtANGLE,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtSerialPort,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtCore,release,\include,C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\win32-msvc"
+				AdditionalOptions="-w34100 -w34189 -w44996"
+				AssemblerListingLocation="release\"
+				DebugInformationFormat="0"
+				ExceptionHandling="1"
+				GeneratePreprocessedFile="0"
+				ObjectFile="release\"
+				Optimization ="2"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,_UNICODE,WIN32,QT_DEPRECATED_WARNINGS,QT_NO_DEBUG,QT_WIDGETS_LIB,QT_GUI_LIB,QT_SERIALPORT_LIB,QT_CORE_LIB,NDEBUG"
+				ProgramDataBaseFileName=""
+				RuntimeLibrary="2"
+				SuppressStartupBanner="true"
+				TreatWChar_tAsBuiltInType="true"
+				WarningLevel="3" />
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="C:\QT\QT5.11.1\5.11.1\MSVC2015\lib\qtmain.lib shell32.lib ModbusSerialPort.lib ModbusProtocol.lib C:\QT\QT5.11.1\5.11.1\MSVC2015\lib\Qt5Widgets.lib C:\QT\QT5.11.1\5.11.1\MSVC2015\lib\Qt5Gui.lib C:\QT\QT5.11.1\5.11.1\MSVC2015\lib\Qt5SerialPort.lib C:\QT\QT5.11.1\5.11.1\MSVC2015\lib\Qt5Core.lib"
+				AdditionalLibraryDirectories="C:\QT\QT5.11.1\5.11.1\MSVC2015\lib,C:\opensslx86\lib,C:\Utils\my_sql\mysql-5.6.11-win32\lib,C:\Utils\postgresqlx86\pgsql\lib,$(QTDIR)\lib,F:\2017_2018_2\MODBUS\modbus\build-Modbus-Desktop_Qt_5_11_1_MSVC2015_32bit-Release\ModbusSerialPort\release,F:\2017_2018_2\MODBUS\modbus\build-Modbus-Desktop_Qt_5_11_1_MSVC2015_32bit-Release\ModbusProtocol\release"
+				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
+				DataExecutionPrevention="true"
+				GenerateDebugInformation="false"
+				IgnoreImportLibrary="true"
+				LinkIncremental="1"
+				LinkTimeCodeGeneration="0"
+				OutputFile="$(OutDir)\ModbusMaster.exe"
+				ProgramDatabaseFile=""
+				RandomizedBaseAddress="true"
+				SubSystem="2"
+				SuppressStartupBanner="true" />
+			<Tool
+				Name="VCManifestTool" />
+			<Tool
+				Name="VCMIDLTool"
+				DefaultCharType="0"
+				EnableErrorChecks="1"
+				WarningLevel="0" />
+			<Tool
+				Name="VCPostBuildEventTool" />
+			<Tool
+				Name="VCPreBuildEventTool" />
+			<Tool
+				Name="VCPreLinkEventTool" />
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,_UNICODE,WIN32,QT_DEPRECATED_WARNINGS,QT_NO_DEBUG,QT_WIDGETS_LIB,QT_GUI_LIB,QT_SERIALPORT_LIB,QT_CORE_LIB" />
+			<DeploymentTool
+				RemoteDirectory="%CSIDL_PROGRAM_FILES%\ModbusMaster"
+				RegisterOutput="0"
+				AdditionalFiles="|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;Qt5Widgets.dll|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;Qt5Gui.dll|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;Qt5SerialPort.dll|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;Qt5Core.dll|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;" />
+		</Configuration>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="debug\"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			ConfigurationType="1"
+			IntermediateDirectory="debug\"
+			UseOfMfc="0">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories=".,C:\QT\QT5.11.1\5.11.1\MSVC2015\include,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtWidgets,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtGui,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtANGLE,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtSerialPort,C:\QT\QT5.11.1\5.11.1\MSVC2015\include\QtCore,debug,\include,C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\win32-msvc"
+				AdditionalOptions="-w34100 -w34189 -w44996"
+				AssemblerListingLocation="debug\"
+				DebugInformationFormat="3"
+				ExceptionHandling="1"
+				GeneratePreprocessedFile="0"
+				ObjectFile="debug\"
+				Optimization ="4"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,_UNICODE,WIN32,QT_DEPRECATED_WARNINGS,QT_WIDGETS_LIB,QT_GUI_LIB,QT_SERIALPORT_LIB,QT_CORE_LIB"
+				ProgramDataBaseFileName=""
+				RuntimeLibrary="3"
+				SuppressStartupBanner="true"
+				TreatWChar_tAsBuiltInType="true"
+				WarningLevel="3" />
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="C:\QT\QT5.11.1\5.11.1\MSVC2015\lib\qtmaind.lib shell32.lib F:\2017_2018_2\MODBUS\modbus\build-Modbus-Desktop_Qt_5_11_1_MSVC2015_32bit-Debug\ModbusSerialPort\debug\ModbusSerialPort.lib F:\2017_2018_2\MODBUS\modbus\build-Modbus-Desktop_Qt_5_11_1_MSVC2015_32bit-Debug\ModbusProtocol\debug\ModbusProtocol.lib C:\QT\QT5.11.1\5.11.1\MSVC2015\lib\Qt5Widgetsd.lib C:\QT\QT5.11.1\5.11.1\MSVC2015\lib\Qt5Guid.lib C:\QT\QT5.11.1\5.11.1\MSVC2015\lib\Qt5SerialPortd.lib C:\QT\QT5.11.1\5.11.1\MSVC2015\lib\Qt5Cored.lib"
+				AdditionalLibraryDirectories="C:\QT\QT5.11.1\5.11.1\MSVC2015\lib,C:\opensslx86\lib,C:\Utils\my_sql\mysql-5.6.11-win32\lib,C:\Utils\postgresqlx86\pgsql\lib,$(QTDIR)\lib,F:\2017_2018_2\MODBUS\modbus\build-Modbus-Desktop_Qt_5_11_1_MSVC2015_32bit-Debug\ModbusSerialPort\debug,F:\2017_2018_2\MODBUS\modbus\build-Modbus-Desktop_Qt_5_11_1_MSVC2015_32bit-Debug\ModbusProtocol\debug"
+				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
+				DataExecutionPrevention="true"
+				GenerateDebugInformation="true"
+				IgnoreImportLibrary="true"
+				LinkTimeCodeGeneration="0"
+				OutputFile="$(OutDir)\ModbusMaster.exe"
+				ProgramDatabaseFile=""
+				RandomizedBaseAddress="true"
+				SubSystem="2"
+				SuppressStartupBanner="true" />
+			<Tool
+				Name="VCManifestTool" />
+			<Tool
+				Name="VCMIDLTool"
+				DefaultCharType="0"
+				EnableErrorChecks="1"
+				WarningLevel="0" />
+			<Tool
+				Name="VCPostBuildEventTool" />
+			<Tool
+				Name="VCPreBuildEventTool" />
+			<Tool
+				Name="VCPreLinkEventTool" />
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,_UNICODE,WIN32,QT_DEPRECATED_WARNINGS,QT_WIDGETS_LIB,QT_GUI_LIB,QT_SERIALPORT_LIB,QT_CORE_LIB,_DEBUG" />
+			<DeploymentTool
+				RemoteDirectory="%CSIDL_PROGRAM_FILES%\ModbusMaster"
+				RegisterOutput="0"
+				AdditionalFiles="|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;Qt5Widgetsd.dll|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;Qt5Guid.dll|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;qwindowsd.dll|C:\QT\QT5.11.1\5.11.1\MSVC2015\plugins\platforms|%CSIDL_PROGRAM_FILES%\ModbusMaster\platforms|0;Qt5SerialPortd.dll|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;Qt5Cored.dll|C:\QT\QT5.11.1\5.11.1\MSVC2015\bin|%CSIDL_PROGRAM_FILES%\ModbusMaster|0;" />
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			<File
+				RelativePath="main.cpp" />
+			<File
+				RelativePath="mainwindow.cpp" />
+			<File
+				RelativePath="masterdialog.cpp" />
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			<File
+				RelativePath="mainwindow.h">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="mainwindow.h;release\moc_predefs.h;C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\moc.exe"
+						CommandLine="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include release/moc_predefs.h -IC:/QT/QT5.11.1/5.11.1/MSVC2015/mkspecs/win32-msvc -IF:/2017_2018_2/MODBUS/modbus/Modbus/ModbusMaster -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtWidgets -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtGui -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtANGLE -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtSerialPort -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtCore -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\atl\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\mfc\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\winrt&quot; mainwindow.h -o release\moc_mainwindow.cpp"
+						Description="MOC mainwindow.h"
+						Outputs="release\moc_mainwindow.cpp"
+						Path="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin" />
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="mainwindow.h;debug\moc_predefs.h;C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\moc.exe"
+						CommandLine="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include debug/moc_predefs.h -IC:/QT/QT5.11.1/5.11.1/MSVC2015/mkspecs/win32-msvc -IF:/2017_2018_2/MODBUS/modbus/Modbus/ModbusMaster -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtWidgets -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtGui -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtANGLE -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtSerialPort -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtCore -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\atl\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\mfc\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\winrt&quot; mainwindow.h -o debug\moc_mainwindow.cpp"
+						Description="MOC mainwindow.h"
+						Outputs="debug\moc_mainwindow.cpp"
+						Path="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin" />
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="masterdialog.h">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="masterdialog.h;release\moc_predefs.h;C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\moc.exe"
+						CommandLine="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include release/moc_predefs.h -IC:/QT/QT5.11.1/5.11.1/MSVC2015/mkspecs/win32-msvc -IF:/2017_2018_2/MODBUS/modbus/Modbus/ModbusMaster -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtWidgets -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtGui -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtANGLE -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtSerialPort -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtCore -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\atl\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\mfc\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\winrt&quot; masterdialog.h -o release\moc_masterdialog.cpp"
+						Description="MOC masterdialog.h"
+						Outputs="release\moc_masterdialog.cpp"
+						Path="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin" />
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="masterdialog.h;debug\moc_predefs.h;C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\moc.exe"
+						CommandLine="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include debug/moc_predefs.h -IC:/QT/QT5.11.1/5.11.1/MSVC2015/mkspecs/win32-msvc -IF:/2017_2018_2/MODBUS/modbus/Modbus/ModbusMaster -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtWidgets -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtGui -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtANGLE -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtSerialPort -IC:/QT/QT5.11.1/5.11.1/MSVC2015/include/QtCore -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\atl\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\mfc\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\VC98\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\8.1\include\\winrt&quot; masterdialog.h -o debug\moc_masterdialog.cpp"
+						Description="MOC masterdialog.h"
+						Outputs="debug\moc_masterdialog.cpp"
+						Path="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin" />
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="Generated Files"
+			Filter="cpp;c;cxx;moc;h;def;odl;idl;res;"
+			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}">
+			<File
+				RelativePath="debug\moc_mainwindow.cpp">
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true" />
+			</File>
+			<File
+				RelativePath="release\moc_mainwindow.cpp">
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true" />
+			</File>
+			<File
+				RelativePath="debug\moc_masterdialog.cpp">
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true" />
+			</File>
+			<File
+				RelativePath="release\moc_masterdialog.cpp">
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true" />
+			</File>
+			<File
+				RelativePath="debug\moc_predefs.h.cbt">
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true" />
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\features\data\dummy.cpp"
+						CommandLine="cl -Bx&quot;$(QTDIR)\bin\qmake.exe&quot; -nologo -Zc:wchar_t -Zi -MDd -W3 -w34100 -w34189 -w44996 -E C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\features\data\dummy.cpp 2>NUL >debug\moc_predefs.h"
+						Description="Generate moc_predefs.h"
+						Outputs="debug\moc_predefs.h"
+						Path="." />
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="release\moc_predefs.h.cbt">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\features\data\dummy.cpp"
+						CommandLine="cl -Bx&quot;$(QTDIR)\bin\qmake.exe&quot; -nologo -Zc:wchar_t -O2 -MD -W3 -w34100 -w34189 -w44996 -E C:\QT\QT5.11.1\5.11.1\MSVC2015\mkspecs\features\data\dummy.cpp 2>NUL >release\moc_predefs.h"
+						Description="Generate moc_predefs.h"
+						Outputs="release\moc_predefs.h"
+						Path="." />
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true" />
+			</File>
+			<File
+				RelativePath="debug\qrc_images.cpp">
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true" />
+			</File>
+			<File
+				RelativePath="release\qrc_images.cpp">
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true" />
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="qrc;*"
+			UniqueIdentifier="{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}"
+			ParseFiles="false">
+			<File
+				RelativePath="images.qrc">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="images.qrc;C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\rcc.exe;master.ico"
+						CommandLine="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\rcc.exe -name images images.qrc -o release\qrc_images.cpp"
+						Description="RCC images.qrc"
+						Outputs="release\qrc_images.cpp"
+						Path="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin" />
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="images.qrc;C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\rcc.exe;master.ico"
+						CommandLine="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin\rcc.exe -name images images.qrc -o debug\qrc_images.cpp"
+						Description="RCC images.qrc"
+						Outputs="debug\qrc_images.cpp"
+						Path="C:\QT\QT5.11.1\5.11.1\MSVC2015\bin" />
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="master.ico" />
+		</Filter>
+		<File
+			RelativePath="F:\2017_2018_2\MODBUS\modbus\Modbus\ModbusMaster\ModbusMaster_resource.rc" />
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

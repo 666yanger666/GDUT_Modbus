@@ -25,9 +25,9 @@ public:
     // 分析主站请求
     int analyzeMasterRequest (QByteArray &buffer);
     // FC: 02
-    void getReadMultiCoilRespondBuff(QByteArray &buffer, QByteArray RespondData);
+    void getReadMultiCoilRespondBuff(QByteArray &buffer, uint8_t* var, uint coilNum);
     // FC: 03
-    void getReadMultiRegRespondBuff(QByteArray &buffer, QByteArray RespondData);
+    void getReadMultiRegRespondBuff(QByteArray &buffer, uint16_t* var, uint regNum);
     // FC: 0F
     bool getWriteMultiCoilRespondBuff(QByteArray &buffer, QByteArray RespondData);
     // FC: 10

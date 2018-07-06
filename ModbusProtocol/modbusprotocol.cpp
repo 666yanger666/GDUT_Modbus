@@ -5,6 +5,7 @@
 
 #define IDBUFFSIZE 1
 #define FCBUFFSIZE 1
+#define DATASIZEBUFFSIZE 1
 #define ADDBUFFSIZE 2
 #define COUNTBUFFSIZE 2
 #define CRCBUFFSIZE 2
@@ -139,9 +140,13 @@ bool ModbusProtocol::getWriteMultiCoilBuff(QByteArray &buffer, uint16_t RegAdd, 
     buffer[5]= (uint8_t)RegCount;
     buffer[6]= (uint8_t)PDUSize; // 发送数据字节数
     // 数据
-    for (int i = PDUIndex; i < PDUIndex+PDUSize; i++)
+    for (int i = PDUIndex; i < (RegCount/8); i++)
     {
         buffer[i]= (unsigned char)(var>>8*(i-PDUIndex));
+    }
+    for (int i=0; i<(bufferSize-(RegCount/8)); i++)
+    {
+        //剩余位补0
     }
     addCrc16(buffer);
     return true;
@@ -175,21 +180,41 @@ bool ModbusProtocol::getwriteMultiRegBuff(QByteArray &buffer, uint16_t RegAdd, u
 }
 
 // 0x02：响应读多个输入线圈
-void ModbusProtocol::getReadMultiCoilRespondBuff(QByteArray &buffer, QByteArray RespondData)
-{
-    buffer.resize(2);
+void ModbusProtocol::getReadMultiCoilRespondBuff(QByteArray &buffer, uint8_t* var, uint coilNum)
+{  
+    uint16_t respondDataSize = (coilNum/8) + (coilNum%8==0?0:1);
+    buffer.resize(IDBUFFSIZE+FCBUFFSIZE+DATASIZEBUFFSIZE+respondDataSize);
     buffer[0]= 0x01;
     buffer[1]= 0x02; // 功能码
-    buffer.append(RespondData);
+    buffer[3] = respondDataSize;
+    for (int i=0; i<(coilNum/8); i++)
+    {
+        uint8_t respondDataByte = 0x00;
+        for (int j=0; j<8; j++)
+        {
+            respondDataByte |= (uint8_t)((*(var+i+j))<<(7-j));
+        }
+        buffer[IDBUFFSIZE+FCBUFFSIZE+DATASIZEBUFFSIZE+i] = respondDataByte;
+    }
+    for (int i=0; i<(respondDataSize-(coilNum/8)); i++)
+    {
+        //剩余位补0
+    }
     addCrc16(buffer);
 }
 // 0x03：响应读多个保持寄存器
-void ModbusProtocol::getReadMultiRegRespondBuff(QByteArray &buffer, QByteArray RespondData)
+void ModbusProtocol::getReadMultiRegRespondBuff(QByteArray &buffer, uint16_t* var, uint regNum)
 {
-    buffer.resize(2);
+    uint16_t respondDataSize = regNum*2;
+    buffer.resize(IDBUFFSIZE+FCBUFFSIZE+DATASIZEBUFFSIZE+respondDataSize);
     buffer[0]= 0x01;
     buffer[1]= 0x03; // 功能码
-    buffer.append(RespondData);
+    buffer[2] = respondDataSize;
+    for (int i=0; i<respondDataSize; i+=2)
+    {
+        buffer[IDBUFFSIZE+FCBUFFSIZE+DATASIZEBUFFSIZE+i] = (unsigned char)((*(var+i)) >> 8);
+        buffer[IDBUFFSIZE+FCBUFFSIZE+DATASIZEBUFFSIZE+i+1] = (unsigned char)(*(var+i));
+    }
     addCrc16(buffer);
 }
 // 0x0F：响应写多个输出线圈

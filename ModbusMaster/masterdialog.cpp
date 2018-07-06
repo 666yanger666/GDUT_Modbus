@@ -153,6 +153,7 @@ void MasterDialog::disconnectCom()
 void MasterDialog::setRunStatus()
 {
     m_run = true;
+    m_lamp->setText((QStringLiteral("")));
     m_lamp->setStyleSheet("background-color:yellow;");
 }
 
@@ -224,30 +225,30 @@ void MasterDialog::getData()
     m_waitForResponse = false;
     QByteArray buffer;
     m_com->getBuffer(buffer);
-    int respondFC = m_modbus->analyzeSlaveRespond(buffer);
-    if (respondFC == 3 && m_run)
+    uint8_t respondFC = m_modbus->analyzeSlaveRespond(buffer);
+    if (respondFC == 0x03 && m_run)
     {
         // 设置启动次数（寄存器的第一个值）
         m_runTimes = (unsigned char)buffer.at(0)<<8 | (unsigned char)buffer.at(1);
         m_lamp->setText(QString::number(m_runTimes));
     }
-    else if (respondFC == 15)
+    else if (respondFC == 0x0f)
     {
         setStatus();
     }
     // 符号位为1出错（0x80 | FC）
-    else if ( (respondFC>>(sizeof(int)*8-1))&1 )
+    else if (respondFC>>(sizeof(uint8_t)*8-1))
     {
         m_timer->stop();
         // 启动、停止失败（写线圈失败）
-        if ((respondFC&0x0f) == 0x0f)
+        if (respondFC == 0x8f)
         {
             m_run = !m_run;
+            setStatus();
             QMessageBox::information(NULL, "tips", "Write coil failed.", QMessageBox::Ok);
         }
         else
         {
-            // setConnectionError();
             QMessageBox::information(NULL, "tips", "Response data error.", QMessageBox::Ok);
         }
     }

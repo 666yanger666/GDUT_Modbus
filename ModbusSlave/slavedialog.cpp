@@ -163,37 +163,15 @@ void SlaveDialog::getData()
 
 void SlaveDialog::readMultiCoilRespond(QByteArray &buffer, uint8_t* var, uint coilNum)
 {
-    QByteArray respondData;
-    uint16_t respondDataSize = (coilNum/8) + (coilNum%8==0?0:1);
-    respondData.resize(1+respondDataSize);
-    respondData[0] = respondDataSize;
 
-    for (int i=1; i<1+respondDataSize; i++)
-    {
-        uint8_t respondDataByte = 0x00;
-        for (int j=0; j<8; j++)
-        {
-            respondDataByte |= (uint8_t)((*(var+i-1+j))<<(7-j));
-        }
-        respondData[i] = respondDataByte;
-    }
-
-    m_modbus->getReadMultiCoilRespondBuff(buffer, respondData);
+    m_modbus->getReadMultiCoilRespondBuff(buffer, var, coilNum);
     m_com->sendData(buffer);
 }
 
 void SlaveDialog::readMultiRegRespond(QByteArray &buffer, uint16_t* var, uint regNum)
 {
-    QByteArray respondData;
-    uint16_t respondDataSize = regNum*2;
-    respondData.resize(1+respondDataSize);
-    respondData[0] = respondDataSize;
-    for (int i=1; i<1+respondDataSize; i+=2)
-    {
-        respondData[i] = (unsigned char)((*(var+i-1)) >> 8);
-        respondData[i+1] = (unsigned char)(*(var+i-1));
-    }
-    m_modbus->getReadMultiRegRespondBuff(buffer, respondData);
+
+    m_modbus->getReadMultiRegRespondBuff(buffer, var, regNum);
     m_com->sendData(buffer);
 }
 

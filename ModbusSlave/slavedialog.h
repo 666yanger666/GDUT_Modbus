@@ -27,7 +27,7 @@ private:
     bool m_connected = false;
     bool m_runLastTime = false;
     bool m_run = false;
-    int m_runTimes = 0;
+    uint16_t m_runTimes = 0;
 
     // 控件
     QLabel* m_comLabel;
@@ -44,13 +44,13 @@ private:
     void setStopStatus();
     void setStatus();
     // 02：读多个输入线圈
-
+    void readMultiCoilRespond(QByteArray &buffer, uint8_t* var, uint coilNum);
     // 03：读多个保持寄存器
-
+    void readMultiRegRespond(QByteArray &buffer, uint16_t* var, uint regNum);
     // 15：设置多个输出线圈（继电器）
-
+    void writeMultiCoilRespond(QByteArray &buffer, QByteArray respondData);
     // 16：设置多个保存寄存器（16位寄存器）
-
+    void writeMultiRegRespond(QByteArray &buffer, QByteArray respondData);
 
 
 

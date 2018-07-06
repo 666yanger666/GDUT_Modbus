@@ -126,42 +126,90 @@ void SlaveDialog::setStatus()
 
 void SlaveDialog::getData()
 {
+    qDebug() << "start";
     QByteArray buffer;
     m_com->getBuffer(buffer);
-    int respondFC = m_modbus->analyzeMasterRequest(buffer);
-    qDebug() << buffer.toHex().toUpper();
-    if (respondFC == 0x03)
+    if (buffer.size() > 0)
     {
-        // 返回启动次数
-        QByteArray respondData;
-        respondData.resize(1);
-        respondData[0] = 0x02;  //????
-        respondData.append((unsigned char)(m_runTimes >> 8));
-        respondData.append((unsigned char)m_runTimes);
-        qDebug() << respondData;
-        m_modbus->getReadMultiRegRespondBuff(buffer, respondData);
-        m_com->sendData(buffer);
-    }
-    else if (respondFC == 0x0F)
-    {
-        // 记录上一次状态
-        m_runLastTime = m_run;
-        // 判断PDU数据，设置线圈状态
-        if (m_run = buffer.at(buffer.size()-1)&0x01)
+        int respondFC = m_modbus->analyzeMasterRequest(buffer);
+        qDebug() << buffer.toHex().toUpper();
+        if (respondFC == 0x03)
         {
-            if (!m_runLastTime)
-            {
-                m_runTimes+=1;
-                qDebug() << m_runTimes;
-            }
+            // 返回启动次数
+            readMultiRegRespond(buffer, &m_runTimes, 1);
         }
-        setStatus();
-        // 返回消息
-        QByteArray respondData;
-        respondData = buffer.mid(0,4);
-        m_modbus->getWriteMultiCoilRespondBuff(buffer, respondData);
+        else if (respondFC == 0x0F)
+        {
+            // 记录上一次状态
+            m_runLastTime = m_run;
+            // 判断PDU数据，设置线圈状态
+            if (m_run = buffer.at(buffer.size()-1)&0x01)
+            {
+                if (!m_runLastTime)
+                {
+                    m_runTimes+=1;
+                    qDebug() << m_runTimes;
+                }
+            }
+            setStatus();
+            // 返回消息
+            QByteArray respondData;
+            respondData = buffer.mid(0,4);
+            writeMultiCoilRespond(buffer, respondData);
+        }
+    }
+    qDebug() << "end";
+}
+
+void SlaveDialog::readMultiCoilRespond(QByteArray &buffer, uint8_t* var, uint coilNum)
+{
+    QByteArray respondData;
+    uint16_t respondDataSize = (coilNum/8) + (coilNum%8==0?0:1);
+    respondData.resize(1+respondDataSize);
+    respondData[0] = respondDataSize;
+
+    for (int i=1; i<1+respondDataSize; i++)
+    {
+        uint8_t respondDataByte = 0x00;
+        for (int j=0; j<8; j++)
+        {
+            respondDataByte |= (uint8_t)((*(var+i-1+j))<<(7-j));
+        }
+        respondData[i] = respondDataByte;
+    }
+
+    m_modbus->getReadMultiCoilRespondBuff(buffer, respondData);
+    m_com->sendData(buffer);
+}
+
+void SlaveDialog::readMultiRegRespond(QByteArray &buffer, uint16_t* var, uint regNum)
+{
+    QByteArray respondData;
+    uint16_t respondDataSize = regNum*2;
+    respondData.resize(1+respondDataSize);
+    respondData[0] = respondDataSize;
+    for (int i=1; i<1+respondDataSize; i+=2)
+    {
+        respondData[i] = (unsigned char)((*(var+i-1)) >> 8);
+        respondData[i+1] = (unsigned char)(*(var+i-1));
+    }
+    m_modbus->getReadMultiRegRespondBuff(buffer, respondData);
+    m_com->sendData(buffer);
+}
+
+void SlaveDialog::writeMultiCoilRespond(QByteArray &buffer, QByteArray respondData)
+{
+    if (m_modbus->getWriteMultiCoilRespondBuff(buffer, respondData))
+    {
         m_com->sendData(buffer);
     }
 }
 
+void SlaveDialog::writeMultiRegRespond(QByteArray &buffer, QByteArray respondData)
+{
+    if (m_modbus->getwriteMultiRegRespondBuff(buffer, respondData))
+    {
+        m_com->sendData(buffer);
+    }
+}
 

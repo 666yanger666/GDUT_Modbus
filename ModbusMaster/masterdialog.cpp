@@ -244,7 +244,6 @@ void MasterDialog::getData()
         if (respondFC == 0x8f)
         {
             m_run = !m_run;
-            setStatus();
             QMessageBox::information(NULL, "tips", "Write coil failed.", QMessageBox::Ok);
         }
         else

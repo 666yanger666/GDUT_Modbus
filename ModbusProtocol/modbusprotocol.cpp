@@ -124,7 +124,7 @@ void ModbusProtocol::getReadMultiRegBuff(QByteArray &buffer, uint16_t RegAdd, ui
 // 0x0F：写多个输出线圈
 bool ModbusProtocol::getWriteMultiCoilBuff(QByteArray &buffer, uint16_t RegAdd, uint16_t RegCount,uint var)
 {
-    int PDUIndex = IDBUFFSIZE + FCBUFFSIZE + ADDBUFFSIZE + COUNTBUFFSIZE + 1;
+    int PDUIndex = IDBUFFSIZE + FCBUFFSIZE + ADDBUFFSIZE + COUNTBUFFSIZE + DATASIZEBUFFSIZE;
     int PDUSize = (RegCount/8) + (RegCount%8==0?0:1); // 发送的数据字节个数
     if (var > qPow(2,PDUSize*8)-1)
     {
@@ -140,13 +140,9 @@ bool ModbusProtocol::getWriteMultiCoilBuff(QByteArray &buffer, uint16_t RegAdd, 
     buffer[5]= (uint8_t)RegCount;
     buffer[6]= (uint8_t)PDUSize; // 发送数据字节数
     // 数据
-    for (int i = PDUIndex; i < (RegCount/8); i++)
+    for (int i=0; i < PDUSize; i++)
     {
-        buffer[i]= (unsigned char)(var>>8*(i-PDUIndex));
-    }
-    for (int i=0; i<(bufferSize-(RegCount/8)); i++)
-    {
-        //剩余位补0
+        buffer[PDUIndex+i]= (uint8_t)(var>>(8*i));
     }
     addCrc16(buffer);
     return true;
@@ -164,16 +160,16 @@ bool ModbusProtocol::getwriteMultiRegBuff(QByteArray &buffer, uint16_t RegAdd, u
     buffer.resize(bufferSize);
     buffer[0]= 0x01;
     buffer[1]= 0x10; // 功能码
-    buffer[2]= (unsigned char)(RegAdd >> 8);
-    buffer[3]= (unsigned char)RegAdd;
-    buffer[4]= (unsigned char)(RegCount >> 8);
-    buffer[5]= (unsigned char)RegCount;
-    buffer[6]= (unsigned char)PDUSize; // 发送数据字节数
+    buffer[2]= (uint8_t)(RegAdd >> 8);
+    buffer[3]= (uint8_t)RegAdd;
+    buffer[4]= (uint8_t)(RegCount >> 8);
+    buffer[5]= (uint8_t)RegCount;
+    buffer[6]= (uint8_t)PDUSize; // 发送数据字节数
     // 数据
     for (int i = PDUIndex; i < PDUIndex+PDUSize; i+=2)
     {
-        buffer[i]= (unsigned char)(*var>>8);
-        buffer[i+1]= (unsigned char)*var;
+        buffer[i]= (uint8_t)(*var>>8);
+        buffer[i+1]= (uint8_t)*var;
     }
     addCrc16(buffer);
     return true;
@@ -184,10 +180,15 @@ void ModbusProtocol::getReadMultiCoilRespondBuff(QByteArray &buffer, uint8_t* va
 {  
     uint16_t respondDataSize = (coilNum/8) + (coilNum%8==0?0:1);
     buffer.resize(IDBUFFSIZE+FCBUFFSIZE+DATASIZEBUFFSIZE+respondDataSize);
+    // 保证多余位为0
+    for (int i=0; i<buffer.size(); i++)
+    {
+        buffer[i] = 0x00;
+    }
     buffer[0]= 0x01;
     buffer[1]= 0x02; // 功能码
     buffer[3] = respondDataSize;
-    for (int i=0; i<(coilNum/8); i++)
+    for (int i=0; i<(int)(coilNum/8); i++)
     {
         uint8_t respondDataByte = 0x00;
         for (int j=0; j<8; j++)
@@ -195,10 +196,6 @@ void ModbusProtocol::getReadMultiCoilRespondBuff(QByteArray &buffer, uint8_t* va
             respondDataByte |= (uint8_t)((*(var+i+j))<<(7-j));
         }
         buffer[IDBUFFSIZE+FCBUFFSIZE+DATASIZEBUFFSIZE+i] = respondDataByte;
-    }
-    for (int i=0; i<(respondDataSize-(coilNum/8)); i++)
-    {
-        //剩余位补0
     }
     addCrc16(buffer);
 }
@@ -212,8 +209,8 @@ void ModbusProtocol::getReadMultiRegRespondBuff(QByteArray &buffer, uint16_t* va
     buffer[2] = respondDataSize;
     for (int i=0; i<respondDataSize; i+=2)
     {
-        buffer[IDBUFFSIZE+FCBUFFSIZE+DATASIZEBUFFSIZE+i] = (unsigned char)((*(var+i)) >> 8);
-        buffer[IDBUFFSIZE+FCBUFFSIZE+DATASIZEBUFFSIZE+i+1] = (unsigned char)(*(var+i));
+        buffer[IDBUFFSIZE+FCBUFFSIZE+DATASIZEBUFFSIZE+i] = (uint8_t)((*(var+i)) >> 8);
+        buffer[IDBUFFSIZE+FCBUFFSIZE+DATASIZEBUFFSIZE+i+1] = (uint8_t)(*(var+i));
     }
     addCrc16(buffer);
 }
